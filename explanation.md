@@ -1,16 +1,19 @@
-## 1.This file expounds on how the objectives of the project were implemented.
+## This file expounds on how the objectives of the project were implemented.
 
-## 2.Choice of the base image on which to build each container.
+## Choice of the base image on which to build each container.
+The first thumb rule when choosing a docker base image is that the size of the image should be smaller. This factor led me to to choose the base image to use for this project.
+The base Image used is a node base image since the project is built using Node.js
 
-## 3.Dockerfile directives used in the creation and running of each container.
+## Dockerfile directives used in the creation and running of each container.
 
-## 4.Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
 
-## 5.Docker-compose volume definition and usage (where necessary).
+## Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
 
-## 6.Git workflow used to achieve the task.
+## Docker-compose volume definition and usage (where necessary).
 
-## 7.Successful running of the applications and if not, debugging measures applied.
+## Git workflow used to achieve the task.
 
-## 8.Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
+## Successful running of the applications and if not, debugging measures applied.
+
+## Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
 
