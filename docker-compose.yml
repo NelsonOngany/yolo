@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  backend:
+    image: docker.io/harold7/yolo-backendapp:1.0.0 
+    ports:
+      - "5000:5000"
+
+  # Frontend services
+  client:
+    image: docker.io/harold7/yolo-clientapp:1.0.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend 
+
+networks:
+  yolo-app:
+    driver: bridge

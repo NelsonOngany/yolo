@@ -32,12 +32,27 @@ This command runs the given instructions when the container is started.
 
 ## Git workflow used to achieve the task.
 Steps taken:
-*Forked and cloned the yoloapp repository into my local machine
-*Installed the dependencies needed to run the app in my local machine. I was able to run the app
-*Created Dockerfiles for each microservice. Build and tested the images on my local machine and pushed the changes to git
-*Created a docker-compose file
+
+* Forked and cloned the yoloapp repository into my local machine
+
+* Installed the dependencies needed to run the app in my local machine. I was able to run the app
+
+* Created Dockerfiles for each microservice. Build and tested the images on my local machine and pushed the changes to git
+
+* Created a docker-compose file
+
 
 ## Successful running of the applications and if not, debugging measures applied.
 
 ## Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
 
+* Descriptive commits to track my progress on github
+
+* Good practices used in naming of Docker images;
+        -use of lowercase only 
+
+        -Use of semantic version i.e harold7/yolo-backendapp:1.0.0 and harold7/yolo-clientapp:1.0.0
+
+        -Use of Kebab-case for multi-word names eg harold7/yolo-backendapp:1.0.0
+
+        -Use of short image names that are meaningful
