@@ -51,6 +51,10 @@ Steps taken:
 - Getting the errors below and working to solve them;
     
     *yolo-client-1 exited with code 0
+
+     - Managed to debug this error by adding tty: true on my docker-compose file.
+     - Yolo app managed to compile successfully on my network on http://172.21.0.3:3000
+     
     *yolo-backend-1  | MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
     
 
