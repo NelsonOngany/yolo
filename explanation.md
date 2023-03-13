@@ -48,6 +48,12 @@ Steps taken:
 
 ## Successful running of the applications and if not, debugging measures applied.
 
+- Getting the errors below and working to solve them;
+    
+    *yolo-client-1 exited with code 0
+    *yolo-backend-1  | MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+    
+
 ## Good practices such as Docker image tag naming standards for ease of identification of images and containers. 
 
 * Descriptive commits to track my progress on github
