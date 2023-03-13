@@ -5,12 +5,16 @@ services:
     image: docker.io/harold7/yolo-backendapp:1.0.0 
     ports:
       - "5000:5000"
+    networks:
+      - yolo-app  
 
   # Frontend services
   client:
     image: docker.io/harold7/yolo-clientapp:1.0.0
     ports:
       - "3000:3000"
+    networks:
+      - yolo-app        
     depends_on:
       - backend 
 

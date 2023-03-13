@@ -26,7 +26,11 @@ This command indicates to docker that the container will have a process listenin
 CMD [ "npm", "run", "start" ]
 This command runs the given instructions when the container is started.
 
+Same explanation applies to the backend Dockerfile
+
 ## Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
+
+-Used a bridge network driver to enable my containers communicate to each other.
 
 ## Docker-compose volume definition and usage (where necessary).
 
@@ -49,6 +53,7 @@ Steps taken:
 * Descriptive commits to track my progress on github
 
 * Good practices used in naming of Docker images;
+
         -use of lowercase only 
 
         -Use of semantic version i.e harold7/yolo-backendapp:1.0.0 and harold7/yolo-clientapp:1.0.0
