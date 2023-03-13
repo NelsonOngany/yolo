@@ -5,13 +5,37 @@ The first thumb rule when choosing a docker base image is that the size of the i
 The base Image used is a node base image since the project is built using Node.js
 
 ## Dockerfile directives used in the creation and running of each container.
+Client service 
+FROM node:13.12.0-slim
+This command specifies the base image to be used in the docker file.
+WORKDIR /app
+This command sets the working directory for the application.
 
+COPY package*.json ./
+This command copies the package.json and package-lock.json files from the local directory to the dockerfile.
+
+RUN npm install
+This command runs the npm install command which install the dependencies need to run the application.
+
+COPY . .
+This command enables one to copy files from docker host to the file system of the new image.
+
+EXPOSE 3000
+This command indicates to docker that the container will have a process listening on a given port or ports.
+
+CMD [ "npm", "run", "start" ]
+This command runs the given instructions when the container is started.
 
 ## Docker-compose Networking (Application port allocation and a bridge network implementation) where necessary.
 
 ## Docker-compose volume definition and usage (where necessary).
 
 ## Git workflow used to achieve the task.
+Steps taken:
+*Forked and cloned the yoloapp repository into my local machine
+*Installed the dependencies needed to run the app in my local machine. I was able to run the app
+*Created Dockerfiles for each microservice. Build and tested the images on my local machine and pushed the changes to git
+*Created a docker-compose file
 
 ## Successful running of the applications and if not, debugging measures applied.
 
