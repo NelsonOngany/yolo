@@ -23,13 +23,14 @@ The git module is used to specify the github link to the yolo project
 * Repo
 The github repository to be cloned
 * Dest
-
+This defines the destination for the cloned repository. This is a local directory in the remote machine.
 * Clone
 You set the attribute clone to yes to clone the repository and update it using the update attribute.
 * Update
 This command updates the repository
 * State
 
+ 5. 
 
 
 # DOCKER COMPOSE SECTION

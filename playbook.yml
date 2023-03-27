@@ -1,15 +1,48 @@
 ---
 - name: Containerized e-commerce platform on Ansible playbook
-  host: all
+  hosts: all
   become: true
+  vars:
+    yolo_app_location: /home/harold/Moringa/yolo
+    yolo_client_location: /home/harold/Moringa/yolo/client/package.json
   tasks:
+
+  - name: Install git
+    yum: name=git update_cache=yes
+
   - name: Clone a github repository
     git:
       repo: https://github.com/NelsonOngany/yolo.git
       dest: /Home/Moringa/yolo/
       clone: yes
       update: yes
+  
+  - name: Install Python packages
+    yum:
+      name=python3-pip 
 
   - name: Install nodejs and npm
-    apt: name=nodejs  name=npm update_cache=yes
-    state: present
+    yum: name=nodejs  name=npm update_cache=yes
+
+  - name: Install Forever (to run our Node.js app).
+    npm: name=forever global=yes state=present
+
+  - name: Ensure Node.js app folder exists.
+    file: "path={{ yolo_app_location }} state=directory"
+
+
+  #- name: Copy example Node.js app to server.
+   # copy: "src=app dest={{ yolo_app_location }}"
+
+  #- name: Install app dependencies defined in package.json.
+   # npm: "path={{ yolo_client_location }} state=present"
+
+  #- name: Check list of running Node.js apps.
+   # command: forever list
+    #register: forever_list
+    #changed_when: false
+
+  #- name: Start example Node.js app.
+   # command: "forever start {{yolo_app_location }}/app/app.js"
+    #when: "forever_list.stdout.find(yolo_app_location + '/app/app.js') == -1"
+    
