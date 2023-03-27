@@ -1,5 +1,12 @@
 ## This file expounds on how the objectives of the project were implemented.
+# ANSIBLE SECTION
+Steps taken to meet objectives of the project;
+1. Initialized vagrant using the vagrant up command in the project's root directory
+2. Added a virtual box 'generic/centos7 (v4.2.14)
+3.
 
+
+# DOCKER COMPOSE SECTION
 ## Choice of the base image on which to build each container.
 The first thumb rule when choosing a docker base image is that the size of the image should be smaller. This factor led me to to choose the base image to use for this project.
 The base Image used is a node base image since the project is built using Node.js
