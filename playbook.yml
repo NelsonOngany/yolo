@@ -4,7 +4,7 @@
   become: true
   vars:
     yolo_app_location: /home/harold/Moringa/yolo
-    yolo_client_location: /home/harold/Moringa/yolo/client/package.json
+
   tasks:
 
   - name: Install git
@@ -19,7 +19,11 @@
   
   - name: Install Python packages
     yum:
-      name=python3-pip 
+      name=python3-pip name=python3-setuptools name=python3-requests
+
+  - name: Install Docker
+    yum:
+      name=docker  
 
   - name: Install nodejs and npm
     yum: name=nodejs  name=npm update_cache=yes
@@ -30,12 +34,27 @@
   - name: Ensure Node.js app folder exists.
     file: "path={{ yolo_app_location }} state=directory"
 
+  - name: Backend docker
+    docker_container: 
+      name: backend
+      image: docker.io/harold7/yolo-backendapp:1.0.0
+      ports:
+        - "5000:5000"
+      command: npm run start
+
+  - name: Client docker
+    docker_container: 
+      name: client
+      image: docker.io/harold7/yolo-clientapp:1.0.0
+      ports:
+        - "3000:3000"
+      command: npm run start
 
   #- name: Copy example Node.js app to server.
    # copy: "src=app dest={{ yolo_app_location }}"
 
   #- name: Install app dependencies defined in package.json.
-   # npm: "path={{ yolo_client_location }} state=present"
+   # npm: "pathS={{ yolo_app_location }} state=present"
 
   #- name: Check list of running Node.js apps.
    # command: forever list

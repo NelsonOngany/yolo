@@ -14,6 +14,18 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "generic/centos7"
   config.vm.box_version = "4.2.14"
+  config.vm.hostname = "yolo"
+  config.vm.network :private_network, ip: "192.168.33.10"
+  config.ssh.insert_key = false
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+
+  config.vm.provider :virtualbox do |v|
+    v.memory = "1024"
+  end
+
+
+
   # Provisioning configuration for Ansible.
   config.vm.provision "ansible" do |ansible|
   ansible.playbook = "playbook.yml"
