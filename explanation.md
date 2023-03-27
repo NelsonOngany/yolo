@@ -3,7 +3,33 @@
 Steps taken to meet objectives of the project;
 1. Initialized vagrant using the vagrant up command in the project's root directory
 2. Added a virtual box 'generic/centos7 (v4.2.14)
-3.
+3. Vagrant up command. This command creates and configures guest machines according to what is in the vagrant file.
+4. Created ansible playbook
+Role of commands on the playbook
+* ---
+The three dashes represent the start of the file
+* Name
+This specifies the play name
+* Tasks
+This specifies the actions to be performed in the playbook
+* Become
+This line tells Ansible to use sudo for all the tasks in the playbook (you’re telling Ansible to ‘become’ the root user with sudo, or an equivalent).
+* Host
+This line tells Ansible to which hosts this playbook applies
+* apt
+To download and install
+* Git
+The git module is used to specify the github link to the yolo project
+* Repo
+The github repository to be cloned
+* Dest
+
+* Clone
+You set the attribute clone to yes to clone the repository and update it using the update attribute.
+* Update
+This command updates the repository
+* State
+
 
 
 # DOCKER COMPOSE SECTION
