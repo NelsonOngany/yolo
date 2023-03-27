@@ -16,7 +16,13 @@
       dest: /Home/Moringa/yolo/
       clone: yes
       update: yes
-  
+
+  - name: Login to Dockerhub
+    docker_login:
+      email:
+      username:
+      password:
+
   - name: Install Python packages
     yum:
       name=python3-pip name=python3-setuptools name=python3-requests
@@ -37,7 +43,9 @@
   - name: Backend docker
     docker_container: 
       name: backend
+      state: started
       image: docker.io/harold7/yolo-backendapp:1.0.0
+      pull: true
       ports:
         - "5000:5000"
       command: npm run start
@@ -45,7 +53,9 @@
   - name: Client docker
     docker_container: 
       name: client
+      state: started
       image: docker.io/harold7/yolo-clientapp:1.0.0
+      pull: true
       ports:
         - "3000:3000"
       command: npm run start
