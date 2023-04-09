@@ -1,4 +1,20 @@
+#Client Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: yoloclient-service
+spec:
+  selector:
+    app: client
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 31110
+
 #Client Deployment manifest
+---
 
 apiVersion: apps/v1
 kind: Deployment
