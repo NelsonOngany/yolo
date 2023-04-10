@@ -4,6 +4,10 @@ Link to the client application: http://192.168.59.100:31110
 
 The application is not live due to a CrashLoopBackOff caused by a failing container...Looking into the issue
 
+Solution; Created a new docker container for the client app and was able to get it running.
+
+Experiencing a load module failure version 'GLIBCXX_3.4.29' NOT FOUND
+
 
 ## 1. Choice of Kubernetes Objects
 Kubernetes objects are persistent entities in the Kubernetes system. Kubernetes uses these entities to represent the state of your cluster. Specifically, they can describe:
