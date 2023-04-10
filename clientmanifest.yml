@@ -1,3 +1,20 @@
+#Backend Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: yolobackend-service
+spec:
+  selector:
+    app: backend
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+
+
+---
+
 #Client Service
 apiVersion: v1
 kind: Service
@@ -13,9 +30,32 @@ spec:
       targetPort: 3000
       nodePort: 31110
 
-#Client Deployment manifest
----
 
+#Backend Deployment manifest
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: yolo-backendapp
+          image: docker.io/harold7/yolo-backendapp:1.0.0
+          ports:
+            - containerPort: 5000
+
+---
+#Client Deployment manifest
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,7 +63,7 @@ metadata:
   labels:
     app: client
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: client
